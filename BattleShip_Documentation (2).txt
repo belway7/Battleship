@@ -1,0 +1,62 @@
+Instructions : To run this program it will first ask how many players are playing enter a number between 2 and 4. Once a number that is within the player limit is entered the program will proceed to ask how large of a grid would you like to play on enter a number between 8 and 20. The grids available are from 8X8 up to 20X20. After the grid size is selected the first player will then be prompted to start placing their ships. Once player one has finished placing their ships it will allow the next player to place their ships. This process repeats until all players have placed their ships. When A player is placing a ship they pick a starting coordinate and then are prompted to place it either vertically or horizontally by hitting either the "h" key or the "v" key.
+After all ships have been placed the boards have been made. Now the program will ask the first player where they would like to attack. They must input a single letter followed by a number that corresponds to the game board coordinates. If the player hits the value on a board full of zeros will appear as a 1. If the player misses the value on a full board of zeros will appear as a * this is to keep track of where each player has attacked already so they don't repeat guesses. When all other opposing ships have been sunk the game is won.
+
+Overview: 
+In our program there is only one class which consists of all our variables and methods. 
+
+Variables:
+
+The playerRemaining variable checks after each round if there is still a player with atleast one ship alive.
+
+The hOrV variable allows the players to pick whether or not they want to place their ship vertically or horizontally. 
+
+The attackYAxis and attackXAxis variables are used as coordinates for when a player attacks. 
+
+The xAxis and yAxis variables label the X and Y axis when placing ships. 
+
+The playerWin variable determines which player wins the game.
+
+The gridSize variable selects the grid size of which the game is played on. 
+
+The gridSelector variable shows each players grid throughout the game. 
+
+The playerCount variable counts the numbers of players selected at the beginning of the game. 
+
+The playerGrids variable keeps track of each players grid and its size. 
+
+Methods: 
+
+playerCreator:  scans an input from the keyboard and the input is a number between 2 and 4. This number determines how many players are playing.
+
+DynamicGrid: method allows the grid to be sized based on user input.
+
+GridOutput: creates a visual gameboard for users.
+
+ShipSelector: sets values for another method called ShipPlacement.
+
+ShipPlacement: Places ships on the gameboard.
+
+AttackTurn: Controls attacks turn by turn for each player.
+
+TurnTaker: A recursive method that continues to check for 1 remaining player while initiating the turn.
+
+EndGame: Displays the winning player.
+
+While loops were used for error checking for when players pick a coordinate that they had previously picked. Seperate loops were used for hits and for misses but they both check if that spot had been previously attacked. An if statement was used to show a visual board of where a player has hit and where they have missed. This is a separate board from the board that their ships are placed on. 
+
+Functional Requirements: 
+1. Uses a three dimensional array to keep track of the players public (hit/miss board) and private (ship placement) boards. Allows for any number of players (although a hard limit was set on 4).
+2. Players place ships by utilizing the ShipSelector and ShipPlacement methods which are held within a for loop that iterates for each player. 
+3. Board is displayed using 0s. 1s represent ships and 5s represent misses on the public facing boards. 
+4. Ships utilize 5,4,3,3,2 passed into the ShipPlacement method. 
+5. TurnTaker method holds base case of a single player remaining (meaning all other players lives in the playerLives array have dropped to zero which decreases the players remaining variable by 1 each time this happens).
+
+Additional Requirements:
+1. Game board size is dynamically decided using user input and the DynamicGrid method. Limits are 8x8 and 10x10. (Input is taken as an integer Ex. 8 Ex2. 10).
+3. More than two players is achieved using the three dimensional array which uses the user input to determine the number of arrays to populate with zeroes. 
+
+Programmer: Bruce French
+Documentation: Braden Kadlec
+
+
+
